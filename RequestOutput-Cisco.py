@@ -9,6 +9,8 @@ def outputOfCommand(command, wait=1) :
     output = intendedSerialPort.read(4096)               
     return output.decode(errors='ignore')
 
+environmentInfo = outputOfCommand('show env all')
+print("Output of show env all:\n", environmentInfo)
 versionInfo = outputOfCommand('show version')
 print("Output of show version:\n", versionInfo)
 
