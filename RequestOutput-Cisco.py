@@ -21,4 +21,4 @@ time.sleep(1)
 interfaceErrorStats =  outputOfCommand('show interfaces | include error|CRC')
 print("show interfaces | include error|CRC:\n", interfaceErrorStats)
 
-ser.close()
+intendedSerialPort.close()
