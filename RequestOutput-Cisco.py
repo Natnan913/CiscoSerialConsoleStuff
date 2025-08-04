@@ -1,6 +1,5 @@
 import serial
 import time
-from openpyxl import load_workbook
 
 ser = serial.Serial('COM3', 9600, timeout=1)
 
@@ -21,5 +20,6 @@ print("show interfaces status:\n", interfaceStatus)
 time.sleep(1) 
 intErrors = sendCommand('show interfaces | include error|CRC')
 print("show interfaces | include error|CRC:\n", intErrors)
+
 
 ser.close()
