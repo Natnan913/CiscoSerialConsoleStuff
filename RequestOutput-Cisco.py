@@ -1,9 +1,14 @@
 import serial
 import time
 
-intendedSerialPort= serial.Serial('COM3', 9600, timeout=1)
+bitRate = 9600
+ComputerPort = 'COM3'
+timeout = 1
 
-def outputOfCommand(command) :
+intendedSerialPort= serial.Serial(ComputerPort, bitRate, timeout)
+
+
+def outputOfCommand(command):
  
     intendedSerialPort.write(command.encode() + b'\r\n') #used \r\n so the Cisco switch can tell that where the end of the command is.
     time.sleep(2)
