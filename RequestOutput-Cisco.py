@@ -3,23 +3,24 @@ import time
 
 intendedSerialPort= serial.Serial('COM3', 9600, timeout=1)
 
-def outputOfCommand(command, wait=1) :
+def outputOfCommand(command) :
+ 
     intendedSerialPort.write(command.encode() + b'\r\n') #used \r\n so the Cisco switch can tell that where the end of the command is.
-    time.sleep(wait)  #it needs to wait for output otherwise the command comes out incorrectly. Same reason why I've kind of spammed "time.sleep" below.  
-    output = intendedSerialPort.read(4096)               
+    time.sleep(2)
+    output = intendedSerialPort.read(4096)     
+         
     return output.decode(errors='ignore')
+ 
 
 environmentInfo = outputOfCommand('show env all')
 print("Output of show env all:\n", environmentInfo)
+
 versionInfo = outputOfCommand('show version')
 print("Output of show version:\n", versionInfo)
-
-time.sleep(1) 
 
 interfacesStatus = outputOfCommand('show interfaces status')
 print("show interfaces status:\n", interfacesStatus)
 
-time.sleep(1) 
 interfaceErrorStats =  outputOfCommand('show interfaces | include error|CRC')
 print("show interfaces | include error|CRC:\n", interfaceErrorStats)
 
