@@ -1,11 +1,7 @@
 import serial
 import time
 
-bitRate = 9600
-ComputerPort = 'COM3'
-timeout = 1
-
-intendedSerialPort= serial.Serial(ComputerPort, bitRate, timeout)
+intendedSerialPort= serial.Serial('COM3', 9600, timeout=1)
 
 
 def outputOfCommand(command):
