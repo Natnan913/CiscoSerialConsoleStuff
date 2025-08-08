@@ -1,1 +1,1 @@
-Script for returning some output from a Juniper switch that I've been writing up on the side, wanted to bring it back to work and run it on some unconfigured switches for some testing of hardware/the OS of some devices
+
