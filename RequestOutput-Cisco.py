@@ -8,8 +8,7 @@ def outputOfCommand(command):
  
     intendedSerialPort.write(command.encode() + b'\r\n') #used \r\n so the Cisco switch can tell that where the end of the command is.
     time.sleep(2)
-    output = intendedSerialPort.read(4096)     
-         
+    output = intendedSerialPort.read(4096)
     return output.decode(errors='ignore')
  
 
@@ -24,5 +23,6 @@ print("show interfaces status:\n", interfacesStatus)
 
 interfaceErrorStats =  outputOfCommand('show interfaces | include error|CRC')
 print("show interfaces | include error|CRC:\n", interfaceErrorStats)
+
 
 intendedSerialPort.close()
